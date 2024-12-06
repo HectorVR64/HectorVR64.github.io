@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coca-Cola</title>
+    <link href="infoEstilo.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="container">
+    <header>
+            
+        <h1> <img src="img/cocacola.png" alt=""></h1>
+        <nav>
+               <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="info.html">Más sobre Nosotros</a></li>
+                    <li><a href="redesC.html">Plataformas Verificadas</a></li>
+                </ul>
+            </nav>
+            
+    
+</header>
+
+<section id="contenido">
+    <section class="ContenidoTex">
+   <section class="Intro">
+    <h2  class="section-title">Introducción</h2>
+<p>En esta sección te mostramos cómo navegar por nuestro sitio, qué funciones ofrece cada sección y cómo 
+    interactuar con los botones. Además, te presentamos las innovaciones que hemos implementado para brindarte
+     una experiencia única.</p>
+
+   </section>
+   
+    <section class="Menu">
+     <h2  class="section-title">Introducción al menú</h2>
+ <p>Nuestro menú principal está diseñado para facilitar tu navegación por el sitio. Desde aquí puedes acceder 
+    a información clave sobre Coca-Cola, explorar nuestras innovaciones tecnológicas y conectar con nuestras redes 
+    sociales oficiales.</p>
+ 
+    </section>
+    <!-- Productos -->
+    <section class="productos">
+        <h2  class="section-title">Descripción de cada opción del menú</h2>
+        <ul>
+            <li><strong>Más sobre Nosotros:</strong></li>
+<p>Te lleva a una página donde encontrarás información sobre la misión, visión, y compromiso de Coca-Cola con la sustentabilidad y la comunidad.</p>
+            <li><strong>Explora la Página:</strong></li>
+<p>Aquí puedes aprender cómo funciona nuestra plataforma, incluyendo una explicación detallada de cada botón y sección, acompañada de un video interactivo.</p>
+            <li><strong>Conecta con Coca-Cola:</strong></li>
+          <p>Descubre las redes sociales oficiales y la página web real de Coca-Cola, asegurándote de seguir fuentes verificadas para mantenerte informado.</p>
+        </ul>
+    </section>
+
+    <!-- ¿Quiénes somos? -->
+    <section id="quienes-somos">
+        <h2 class="section-title">Beneficios del diseño del menú</h2>
+        <li><strong>Accesibilidad:</strong> Estructura intuitiva que permite encontrar información fácilmente.</li>
+            <li><strong>Estilo visual:</strong> Diseño minimalista con opciones claras y funcionales.</li>
+            <li><strong>Rapidez:</strong> Cada enlace te lleva directamente a la sección que necesitas, mejorando la experiencia del usuario.</li>
+        
+    </section>
+
+    <!-- Misión y Visión -->
+    <section id="mision-vision">
+        <h2 class="section-title">Pagina de Conoce Coca-Cola</h2>
+        
+        <h3>Secciones</h3>
+        <li><strong>Inicio: </strong> Redirige a la página principal, donde encontrarás una introducción a Coca-Cola y enlaces a información importante.
+        </li>
+            <li><strong>Productos: </strong>  Explora la lista de productos destacados.</li>
+            <li><strong>Quiénes somos?:</strong> Conoce la misión, visión y valores de Coca-Cola.</li>
+            <li><strong>Contacto::</strong> Envía un mensaje directamente desde el formulario integrado.</li>
+        
+        </section>
+
+    <!-- Innovación Tecnológica -->
+    <section id="innovacion-tecnologica">
+        <h2 class="section-title">Innovaciones de la página</h2>
+        <li><strong>Galería de imágenes interactiva. </strong> </li>
+        <li><strong>Sección de ubicación integrada con Google Maps.</strong> </li>
+        <li><strong>Formulario de contacto con confirmación en tiempo real.
+        </strong> </li></section>
+
+    <!-- Coca-Cola en México -->
+    <section id="coca-cola-en-mexico">
+        <h2 class="section-title">Video explicativo</h2>
+        
+        <p>Explora el funcionamiento de nuestro sitio en este breve video:</p>
+    <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+
+</section>
+</section>
+
+    <!-- Carrusel de imágenes -->
+    
+
+    <!-- Formulario de contacto -->
+    
+</section>
+<div class="clear"></div>
+    <footer>
+        <p>&copy; 2024 Coca-Cola Company. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+</div>
+    <div id="fecha-hora"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        document.getElementById("formulario-contacto").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("mensaje-exito").style.display = "block";
+        });
+
+        setInterval(function() {
+            var fechaHora = new Date();
+            var fechaHoraTexto = fechaHora.toLocaleString();
+            document.getElementById("fecha-hora").textContent = fechaHoraTexto;
+        }, 1000);
+
+        function initMap() {
+    var ubicacion = { lat: 19.432608, lng: -99.133209 }; // Coordenadas de ejemplo para Ciudad de México
+    var mapa = new google.maps.Map(document.getElementById("mapa"), {
+        zoom: 12,
+        center: ubicacion,
+    });
+    var marcador = new google.maps.Marker({
+        position: ubicacion,
+        map: mapa,
+        title: "Nuestra ubicación",
+    });
+}
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</div>
+</body>
+</html>
