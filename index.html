@@ -1,0 +1,109 @@
+<html> 
+    <head>
+        <link rel="stylesheet" href="diseño.css" type="text/css">
+        <title>ALEJAM</title>
+    </head>
+    <body>
+        <header>
+            <h1>ALEJAM</h1>
+            <img src="../img/Dientes.png" style="position: absolute; top: 0; left: 5; width: 190px; height: 180px; object-fit: contain;">
+        </header>
+    
+        <nav>
+            <a href="Sobre.html">Sobre mí</a>
+            <a href="Servicios.html">Servicios</a>
+            <a href="Contact.html">Contacto</a>
+        </nav>
+
+        <p></p>
+        <center>    <div class="historia-container" onclick="this.classList.toggle('expanded')"> 
+            <h2>HISTORIA</h2>
+            <h3>Haz clic aquí para leer más...</h3>
+            <p>Alejam consultorio dental inició sus actividades en el año 1999, en una colonia que, por aquellos entonces, apenas comenzaba a poblarse. En sus primeros días, el consultorio era un pequeño espacio lleno de esperanza y dedicación, comprometido con la salud bucal de la comunidad que empezaba a formarse a su alrededor. Desde su apertura, nos hemos enfocado en ofrecer atención dental de calidad, en un ambiente cálido y cercano, siempre buscando ganar la confianza de nuestros pacientes.</p>
+            <p>A lo largo de estos 25 años, hemos crecido junto con el vecindario. Nuestros pacientes, en su mayoría vecinos de la zona, han sido testigos del compromiso y la ética que nos ha caracterizado. Hemos acompañado a varias generaciones, ofreciendo servicios que van desde limpiezas y revisiones periódicas hasta tratamientos más especializados, siempre con la seguridad de que la salud bucal es un aspecto fundamental para el bienestar general.</p>
+            <p>En la mitad de su camino “Alejam” ha potencializado la mejora en su consulta dental, buscando brindar la mejor atención médica posible, sin embargo, ha quedado un rezago considerable específicamente en el marketing y la publicidad de la empresa.</p>
+        </div>
+    </center> 
+    
+
+        <div class="video-container">
+            <video width="80%" controls autoplay muted>
+                <source src="../img/vid.mp4" type="video/mp4">
+                Tu navegador no soporta este formato de video.
+            </video>
+        </div>
+    </div>
+
+    <div class="opiniones-container">
+        <h3>Lo que dicen nuestros clientes</h3>
+        <div class="opinion buena visible">
+            <p>"Excelente servicio, el trato fue increíble y mi sonrisa nunca había estado mejor!"</p>
+        </div>
+        <div class="opinion mala">
+            <p>"Tuve que esperar mucho para que me atendieran, la experiencia no fue la que esperaba."</p>
+        </div>
+        <div class="opinion buena">
+            <p>"Muy recomendados, todo el equipo es muy profesional y la atención es personalizada."</p>
+        </div>
+        <div class="opinion mala">
+            <p>"No me sentí cómodo con el tratamiento, me hubiera gustado más información antes de proceder."</p>
+        </div>
+
+        <div class="formulario-opinion">
+            <h4>Deja tu opinión</h4>
+            <textarea id="nueva-opinion" placeholder="Escribe tu opinión aquí..."></textarea>
+            <select id="tipo-opinion">
+                <option value="buena">Buena</option>
+                <option value="mala">Mala</option>
+            </select>
+            <p></p>
+            <button onclick="agregarOpinion()">Enviar Opinión</button>
+        </div>
+    </div>
+
+        <footer>
+            <img src="../img/Dientes-2.png" width="7%">
+            <p>&copy; 2025 ALEJAM. </p>
+            <p>Esta Pagina fue creada por alumnas de la UPEM</p>
+            <p>Todos los derechos reservados.</p>
+        </footer>
+
+        <script>
+
+            let currentOpinion = 0;
+            const opinions = document.querySelectorAll('.opinion');
+            setInterval(() => {
+
+                opinions[currentOpinion].classList.remove('visible');
+                
+                currentOpinion = (currentOpinion + 1) % opinions.length;
+                
+                opinions[currentOpinion].classList.add('visible');
+            }, 3000); 
+
+            function agregarOpinion() {
+                const opinionText = document.getElementById('nueva-opinion').value;
+                const opinionType = document.getElementById('tipo-opinion').value;
+
+                if (opinionText.trim() === '') {
+                    alert('Por favor, escribe una opinión antes de enviarla.');
+                    return;
+                }
+
+                const nuevaOpinion = document.createElement('div');
+                nuevaOpinion.classList.add('opinion');
+                nuevaOpinion.classList.add(opinionType); 
+                nuevaOpinion.innerHTML = `<p>"${opinionText}"</p>`;
+
+                document.querySelector('.opiniones-container').appendChild(nuevaOpinion);
+
+                document.getElementById('nueva-opinion').value = '';
+                document.getElementById('tipo-opinion').value = 'buena'; 
+
+                setTimeout(() => {
+                    nuevaOpinion.classList.add('visible');
+                }, 50); 
+            }
+        </script>
+    </body>
+    </html>
